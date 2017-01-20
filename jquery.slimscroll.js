@@ -374,7 +374,11 @@
           }
 
           // scroll content
-          me.scrollTop(delta);
+            if(o.animate) {
+                me.stop(true, true).animate({ scrollTop: delta }, 200, 'linear');
+            } else {
+                me.scrollTop(delta);
+            }
 
           // fire scrolling event
           me.trigger('slimscrolling', ~~delta);
